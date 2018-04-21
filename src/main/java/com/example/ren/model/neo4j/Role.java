@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.StartNode;
  * 角色
  * Created by qiang.ren on 2018/4/17.
  */
-@RelationshipEntity(type = "ACTS_IN")
+@RelationshipEntity(type = "扮演")
 public class Role {
 
     @GraphId

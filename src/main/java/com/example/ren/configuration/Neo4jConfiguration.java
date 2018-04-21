@@ -1,3 +1,4 @@
+/*
 package com.example.ren.configuration;
 
 import org.neo4j.ogm.session.SessionFactory;
@@ -8,12 +9,14 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.data.neo4j.transaction.Neo4jTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+*/
 /**
  * Neo4j配置类
  *
  * @author qiang.ren
  * @date 2018/4/17
- */
+ *//*
+
 @Configuration
 @EnableAutoConfiguration
 @EnableTransactionManagement
@@ -38,3 +41,4 @@ public class Neo4jConfiguration{
                 .build();
     }
 }
+*/

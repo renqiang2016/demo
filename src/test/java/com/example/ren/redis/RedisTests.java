@@ -40,15 +40,21 @@ public class RedisTests {
     @Test
     public void get(){
         User user;
-        Optional<User> optional = userRepository.findById(1L);
+        Optional<User> optional = userRepository.findByName("任强");
         if (null == userRedis.get("user")){
-            user = userRepository.findById(1L).get();
-            userRedis.add("user", 10L, optional.get());
+            if (optional.isPresent()){
+                user = optional.get();
+                Assert.assertNotNull(user);
+                logger.info("======user====== name:{}, deparment:{}, role:{}",
+                        user.getName(), user.getDepartment().getName(), user.getRoles().get(0).getName());
+                userRedis.add("user", 10L, user);
+            }else {
+                logger.info("数据库中没有这个人");
+            }
         }else {
             user = userRedis.get("user");
+            logger.info("======user====== name:{}, deparment:{}, role:{}",
+                    user.getName(), user.getDepartment().getName(), user.getRoles().get(0).getName());
         }
-        Assert.assertNotNull(user);
-        logger.info("======user====== name:{}, deparment:{}, role:{}",
-                user.getName(), user.getDepartment().getName(), user.getRoles().get(0).getName());
     }
 }

@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Mysql测试
+ * Mysql测试(需要注意，进行mysql测试时，需要注释掉Neo4j配置类->Neo4jConfiguration.java)
  * Created by qiang.ren on 2018/4/16.
  */
 @RunWith(SpringRunner.class)
@@ -59,7 +59,7 @@ public class MysqlTests {
         Assert.assertNotNull(role.getId());
 
         User user = new User();
-        user.setName("任");
+        user.setName("任强");
         user.setCreateDate(new Date());
         user.setDepartment(department);
         List<Role> roles = roleRepository.findAll();

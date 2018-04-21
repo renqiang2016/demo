@@ -1,11 +1,16 @@
 package com.example.ren.model.neo4j;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.core.JsonGenerator;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.typeconversion.DateLong;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,13 +23,15 @@ public class Movie {
     @GraphId
     private Long id;
 
-    private String title;
+    private String name;
 
-    private String year;
+    private String photo;
 
-    private String tagline;
+    @DateLong
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC+8")
+    private Date createDate;
 
-    @Relationship(type = "ACTS_IN", direction = Relationship.INCOMING)
+    @Relationship(type = "扮演", direction = Relationship.INCOMING)
     private List<Role> roles = new ArrayList<>();
 
     public void addRole(Actor actor, String name){
@@ -40,28 +47,28 @@ public class Movie {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getYear() {
-        return year;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public String getTagline() {
-        return tagline;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public List<Role> getRoles() {
@@ -73,12 +80,5 @@ public class Movie {
     }
 
     public Movie() {
-    }
-
-    public Movie(String title, String year, String tagline, List<Role> roles) {
-        this.title = title;
-        this.year = year;
-        this.tagline = tagline;
-        this.roles = roles;
     }
 }

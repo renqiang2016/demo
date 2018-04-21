@@ -16,8 +16,8 @@ public interface MovieRepository extends Neo4jRepository<Movie, Long>{
 
     /**
      * 通过title查找movie
-     * @param title 主题
+     * @param name 名字
      * @return movie
      */
-    Movie findByTitle(@Param("title") String title);
+    Movie findByName(@Param("name") String name);
 }
