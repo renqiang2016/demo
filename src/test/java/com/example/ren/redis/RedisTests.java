@@ -40,7 +40,7 @@ public class RedisTests {
     @Test
     public void get(){
         User user;
-        Optional<User> optional = userRepository.findByName("任强");
+        Optional<User> optional = userRepository.findById(5L);
         if (null == userRedis.get("user")){
             if (optional.isPresent()){
                 user = optional.get();

@@ -16,15 +16,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DruidConfiguration {
 
-    /*@Bean
+    @Bean
     public ServletRegistrationBean statViewServlet(){
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),
-                "/druid*//*");
+                "/druid/*");
         //IP白名单
         servletRegistrationBean.addInitParameter("allow", "192.168.2.115,127.0.0.1");
         //IP黑名单
         servletRegistrationBean.addInitParameter("deny", "192.168.2.119");
-        servletRegistrationBean.addInitParameter("loginUserName", "druid");
+        servletRegistrationBean.addInitParameter("loginUsername", "druid");
         servletRegistrationBean.addInitParameter("loginPassword", "060012");
         servletRegistrationBean.addInitParameter("resetEnable", "false");
         return servletRegistrationBean;
@@ -34,9 +34,9 @@ public class DruidConfiguration {
     public FilterRegistrationBean statFilter(){
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
         //添加过滤规则
-        filterRegistrationBean.addUrlPatterns("*//*");
+        filterRegistrationBean.addUrlPatterns("/*");
         //忽略过滤的格式
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid*//*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
-    }*/
+    }
 }

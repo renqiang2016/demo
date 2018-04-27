@@ -60,6 +60,7 @@ public class MysqlTests {
 
         User user = new User();
         user.setName("任强");
+        user.setEmail("qiang.ren@phicomm.com");
         user.setCreateDate(new Date());
         user.setDepartment(department);
         List<Role> roles = roleRepository.findAll();
@@ -75,8 +76,12 @@ public class MysqlTests {
         Page<User> page = userRepository.findAll(pageable);
         Assert.assertNotNull(page);
         for (User user:page.getContent()) {
-            logger.info("====user==== user name:{}, department name:{}, role name:{}",
-                    user.getName(), user.getDepartment().getName(), user.getRoles().get(0).getName());
+            logger.info("====user==== user name:{}, user email:{}, department name:{}, role name:{}",
+                    user.getName(), user.getEmail(), user.getDepartment().getName(), user.getRoles().get(0).getName());
         }
+
+        User u = userRepository.findByNameAndEmail("任强", "qiang.ren@phicomm.com");
+        logger.info("====u==== u name:{},  user email:{}, department name:{}, role name:{}",
+                u.getName(), u.getEmail(), u.getDepartment().getName(), u.getRoles().get(0).getName());
     }
 }

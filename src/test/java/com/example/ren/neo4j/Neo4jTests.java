@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * Neo4j测试类
+ * Neo4j测试类(需要注意，进行mysql测试时，需要解禁Neo4j配置类->Neo4jConfiguration.java)
  * Created by qiang.ren on 2018/4/17.
  */
 @RunWith(SpringRunner.class)

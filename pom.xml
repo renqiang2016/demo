@@ -89,16 +89,33 @@
             <artifactId>neo4j-ogm-http-driver</artifactId>
             <version>${neo4j-ogm.version}</version>
         </dependency>
-        <!-- thymeleaf -->
+        <!-- freemarker -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 		<!-- druid数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.1.9</version>
+		</dependency>
+		<!-- security -->
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>-->
+		<!-- 验证码-->
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<!-- fastdfs-client -->
+		<dependency>
+			<groupId>com.github.tobato</groupId>
+			<artifactId>fastdfs-client</artifactId>
+			<version>1.26.1-RELEASE</version>
 		</dependency>
         <!-- mybatis -->
 		<dependency>
@@ -142,12 +159,6 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.46</version>
-		</dependency>
-		<!-- freemarker -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
-			<version>1.5.10.RELEASE</version>
 		</dependency>
 		<!-- phicomm-common-sso -->
 		<!--<dependency>
